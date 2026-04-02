@@ -62,6 +62,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 3rem;
+    align-items: center;
 }
 
 .nav-container a {
@@ -348,14 +349,10 @@ body {
 
 /* Theme Toggle Button */
 .theme-toggle {
-    position: fixed;
-    top: 1.5rem;
-    right: 2rem;
     background: transparent;
     border: none;
     color: var(--text-accent);
     cursor: pointer;
-    z-index: 200;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -365,11 +362,4 @@ body {
 
 .theme-toggle:hover {
     transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-    .theme-toggle {
-        top: 1rem;
-        right: 1rem;
-    }
 }
