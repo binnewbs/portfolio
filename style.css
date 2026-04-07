@@ -248,7 +248,8 @@ body {
     border: 1px solid var(--card-border);
     position: relative;
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
     color: inherit;
 }
 
@@ -287,6 +288,23 @@ body {
 .project-desc {
     font-size: 0.85rem;
     line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.project-badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    background-color: var(--text-accent);
+    color: var(--bg-color);
+    font-weight: 600;
 }
 
 /* Contact Section */
