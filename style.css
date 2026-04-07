@@ -206,6 +206,21 @@ body {
     mask-image: url("https://cdn.simpleicons.org/javascript");
 }
 
+.icon-electron {
+    -webkit-mask-image: url("https://cdn.simpleicons.org/electron");
+    mask-image: url("https://cdn.simpleicons.org/electron");
+}
+
+.icon-typescript {
+    -webkit-mask-image: url("https://cdn.simpleicons.org/typescript");
+    mask-image: url("https://cdn.simpleicons.org/typescript");
+}
+
+.icon-tailwindcss {
+    -webkit-mask-image: url("https://cdn.simpleicons.org/tailwindcss");
+    mask-image: url("https://cdn.simpleicons.org/tailwindcss");
+}
+
 /* Education Section */
 .edu-item {
     margin-bottom: var(--padding-md);
