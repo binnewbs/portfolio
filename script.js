@@ -64,4 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+        const isClickInsideMenu = navLinksWrapper.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+        
+        if (navLinksWrapper.classList.contains('active') && !isClickInsideMenu && !isClickOnToggle) {
+            toggleMenu();
+        }
+    });
 });
