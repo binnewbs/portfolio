@@ -42,4 +42,26 @@ document.addEventListener('DOMContentLoaded', () => {
             moonIcon.style.display = 'none';
         }
     });
+
+    // Mobile Menu Logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinksWrapper = document.querySelector('.nav-links');
+
+    const toggleMenu = () => {
+        menuToggle.classList.toggle('active');
+        navLinksWrapper.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Close menu when a link is clicked
+    const allNavLinks = document.querySelectorAll('.nav-links a');
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinksWrapper.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    });
 });
