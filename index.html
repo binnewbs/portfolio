@@ -12,15 +12,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#about" class="active">About</a>
-            <a href="#education">Education</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#about" class="nav-logo">
+                <img src="logo.png" alt="Logo">
+            </a>
+            <div class="nav-links">
+                <a href="#about" class="active">About</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">
                 <!-- Sun icon (shown in dark mode) -->
                 <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -48,10 +54,11 @@
         <!-- ABOUT SECTION -->
         <section id="about" class="section">
             <div class="banner-container">
-                <img src="banner.png" alt="Technical portfolio banner for Bintang Mulya Ramadhan" class="banner">
+                <img src="gruvbox.png" alt="Technical portfolio banner for Bintang Mulya Ramadhan" class="banner">
             </div>
 
             <h1 class="page-title"><i>Bintang Mulya Ramadhan</i></h1>
+            <div class="japanese-name">ビンタン・ムリヤ・ラマダン</div>
 
             <div class="about-text">
                 <p>First-year Information Systems student at the State University of Surabaya (UNESA), originally
@@ -67,36 +74,6 @@
                 <br>
             </div>
 
-            <h3 class="tech-stack-title">Tech Stack</h3>
-            <div class="tech-stack-grid">
-                <div class="tech-card">
-                    <div class="tech-icon icon-python"></div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon icon-linux"></div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon icon-docker"></div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon icon-html5"></div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon icon-css3"></div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon icon-javascript"></div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon icon-electron"></div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon icon-typescript"></div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-icon icon-tailwindcss"></div>
-                </div>
-            </div>
         </section>
 
         <!-- EDUCATION SECTION -->
