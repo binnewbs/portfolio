@@ -46,10 +46,17 @@ body {
 /* Navbar */
 .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 1.5rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: calc(100% - 3rem);
+    max-width: var(--container-width);
     z-index: 100;
-    padding: var(--padding-md) 0;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-rad);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--card-border);
 }
 
 .navbar::before {
@@ -57,16 +64,15 @@ body {
     position: absolute;
     inset: 0;
     background-color: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: -1;
     transition: background-color 0.4s ease;
+    border-radius: inherit;
 }
 
 .nav-container {
     width: 100%;
-    max-width: var(--container-width);
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -402,9 +408,7 @@ body {
         display: flex;
     }
 
-    .nav-container {
-        padding: 0 1rem;
-    }
+
 
     .projects-grid,
     .contact-grid {
