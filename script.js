@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleMenu = () => {
         menuToggle.classList.toggle('active');
         navLinksWrapper.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
     };
 
     menuToggle.addEventListener('click', toggleMenu);
@@ -74,4 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleMenu();
         }
     });
+
+    // Close menu when scrolling the page
+    window.addEventListener('scroll', () => {
+        if (navLinksWrapper.classList.contains('active')) {
+            toggleMenu();
+        }
+    }, { passive: true });
 });
