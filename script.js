@@ -2,31 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-container a');
 
-    const observerOptions = {
-        root: null,
-        rootMargin: '-50px 0px -50% 0px',
-        threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Remove active class from all links
-                navLinks.forEach(link => link.classList.remove('active'));
-                
-                // Add active class to corresponding link
-                const id = entry.target.getAttribute('id');
-                const activeLink = document.querySelector(`.nav-container a[href="#${id}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
+    const updateActiveSection = () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            // Offset to account for the fixed navbar
+            if (window.scrollY >= sectionTop - 150) {
+                current = section.getAttribute('id');
             }
         });
-    }, observerOptions);
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+        // Ensure the last section highlights when scrolled to the absolute bottom
+        if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 10) {
+            current = sections[sections.length - 1].getAttribute('id');
+        }
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (current && link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+    // Run once on load to set initial state
+    updateActiveSection();
+
+    // Update on scroll
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
 
     const themeToggle = document.getElementById('theme-toggle');
     const sunIcon = document.getElementById('sun-icon');
