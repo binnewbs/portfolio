@@ -84,4 +84,59 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleMenu();
         }
     }, { passive: true });
+
+    // Project Show More Logic
+    const projectsWrapper = document.getElementById('projects-wrapper');
+    const projectsGrid = document.querySelector('.projects-grid');
+    const projectCards = document.querySelectorAll('.project-card');
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const showMoreContainer = document.querySelector('.show-more-container');
+
+    if (projectsWrapper && projectCards.length > 2) {
+        const setInitialHeight = () => {
+            if (!projectsWrapper.classList.contains('expanded')) {
+                // Get the second card
+                const secondCard = projectCards[1];
+                // Set height to show the first two cards completely, plus 80px to show a glimpse of the rest
+                const wrapperHeight = secondCard.offsetTop + secondCard.offsetHeight + 80;
+                projectsWrapper.style.maxHeight = `${wrapperHeight}px`;
+            }
+        };
+
+        // Ensure images/layout are calculated before setting height
+        setTimeout(setInitialHeight, 50);
+        
+        window.addEventListener('resize', () => {
+            if (!projectsWrapper.classList.contains('expanded')) {
+                setInitialHeight();
+            } else {
+                projectsWrapper.style.maxHeight = `${projectsGrid.scrollHeight + 50}px`;
+            }
+        });
+
+        showMoreBtn.addEventListener('click', () => {
+            projectsWrapper.classList.toggle('expanded');
+            if (projectsWrapper.classList.contains('expanded')) {
+                projectsWrapper.style.maxHeight = `${projectsGrid.scrollHeight + 50}px`;
+                showMoreBtn.textContent = 'Show Less';
+            } else {
+                setInitialHeight();
+                showMoreBtn.textContent = 'Show More';
+                
+                // Scroll back if needed
+                const projectsSection = document.getElementById('projects');
+                const navOffset = 100;
+                if (window.scrollY > projectsSection.offsetTop) {
+                    window.scrollTo({
+                        top: projectsSection.offsetTop - navOffset,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    } else if (showMoreContainer) {
+        showMoreContainer.style.display = 'none';
+        const fade = document.getElementById('projects-fade');
+        if (fade) fade.style.display = 'none';
+    }
 });

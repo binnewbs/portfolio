@@ -262,6 +262,51 @@ body {
     font-weight: 600;
 }
 
+/* Projects Expand/Collapse */
+.projects-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: -10px;
+    transition: max-height 0.4s ease-out;
+}
+
+.projects-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, var(--bg-color) 90%);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.projects-wrapper.expanded .projects-fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.show-more-btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--text-accent);
+    color: var(--text-accent);
+    border-radius: var(--border-rad);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.show-more-btn:hover {
+    background-color: var(--text-accent);
+    color: var(--bg-color);
+}
+
 /* Private Project Card */
 .private-card {
     cursor: default;
