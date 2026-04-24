@@ -165,6 +165,42 @@ body {
     font-size: 0.95rem;
 }
 
+/* Tech Stack */
+.tech-stack {
+    margin-top: 0.5rem;
+}
+
+.tech-stack-grid {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-rad);
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--text-accent);
+}
+
+.tech-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--text-accent);
+    flex-shrink: 0;
+}
+
 /* Education Section */
 .edu-item {
     margin-bottom: var(--padding-md);
